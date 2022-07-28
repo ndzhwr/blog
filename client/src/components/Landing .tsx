@@ -1,23 +1,26 @@
 import React from 'react'
 import DefaultImage from '../assets/default.png'
+import Navbar from './Navbar'
 import { lorem } from '../assets/lorem'
 import Blogonhome from './Blogonhome'
 import Footer from './Footer'
 import SmallBlog from './SmallBlog'
+import Sidenavbar from './Sidenavbar'
 
 
 const Landing: React.FC = () => {
     return (
         <>
+            <Navbar />
             <div className='grid grid-cols-2 2xl:grid-cols-2 md:grid-cols-2 msm:grid-cols-1  md:px-[5vw] msm:px-[2vw] bg-blue-50   lg:px-[10vw]  '>
 
                 <div className='py-20 lg:py-40  text-gray-500 msm:w-full'>
                     <div className='w-40 h-60  absolute bg-orange-100 backdrop-blur opacity-30  -z-10 blur-lg'></div>
-                    <code className='text-sky-500'>./blogside ;</code>
+                    <code className='text-sky-500 indent-4'>./blogside ;</code>
                     <h1 className="font-extrabold text-4xl text-black my-[2wh] text-center lg:text-left">Where cool blogs find you</h1>
-                    <p className='text-sm ' >Come on find the best wordwide blogger <br />
+                    <p className='text-center md:text-left ' >Come on find the best wordwide blogger <br />
                         And become one of them</p>
-                    <p className='mt-[2vh]'>Blogside&copy; is a wordwide blogs and articles store where you can find some interesting Blogs that sounds beautiful for you </p>
+                    <p className='mt-[2vh] text-center md:text-left'>Blogside&copy; is a wordwide blogs and articles store where you can find some interesting Blogs that sounds beautiful for you </p>
                     <div className='w-full mt-[4vh]'>
                         <button className='text-white bg-sky-500 rounded-md px-4 py-2 md:scale-10 msm:scal'>Explore blogs</button> <button className='text-sky-500 border border-sky-500 rounded-md px-4 py-2'>Start writing aricles</button>
                     </div>
@@ -66,22 +69,22 @@ const Landing: React.FC = () => {
                 <div className=' py-[5vh]'>
                     <h1 className='text-xl font-bold  w-fit pr-6 text-center'>Contact us</h1>
                     <p className='text-sm text-gray-400 my-6 text-center lg:text-left '>
-                        If you have a problem, wanna ask something or needing some kinda information, contact us by filling in the following form. Our support team will be ready to help you. 
+                        If you have a problem, wanna ask something or needing some kinda information, contact us by filling in the following form. Our support team will be ready to help you.
                         For development information, see the developer contact at the footer.
                     </p>
 
                 </div>
                 <div className="form">
                     <label htmlFor="fullname">Full name</label>
-                    <input type="text"  className='w-full px-4 py-2 mb-2 text-sm rounded-md' placeholder='John Doe'/> <br />
+                    <input type="text" className='w-full px-4 py-2 mb-2 text-sm rounded-md' placeholder='John Doe' /> <br />
                     <label htmlFor="fullname">Email address</label>
-                    <input type="text"  className='w-full px-4 py-2 mb-2 text-sm rounded-md 'placeholder='johndoe@gmail.com'/> <br />
+                    <input type="text" className='w-full px-4 py-2 mb-2 text-sm rounded-md ' placeholder='johndoe@gmail.com' /> <br />
                     <label htmlFor="fullname">Message</label>
                     <textarea className='w-full no-resize h-[100px] px-4 py-2 text-sm rounded-md ' placeholder='Jot your message down here' />
                 </div>
 
             </div>
-            <Footer/>
+            <Footer />
 
 
         </>

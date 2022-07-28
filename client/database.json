@@ -1,0 +1,54 @@
+{
+    "users": [
+        {
+            "id": "rebc89hu8897kdfgbkdhfgbjfdhgbfhdgb",
+            "username": "rexisn",
+            "profile": "https://media.istockphoto.com/vectors/male-user-icon-vector-id517998264?k=20&m=517998264&s=612x612&w=0&h=pdEwtkJlZsIoYBVeO2Bo4jJN6lxOuifgjaH8uMIaHTU=",
+            "email": "ndizihiweregis06@gmail.com",
+            "password": "nregisnd",
+            "bio": "Software developer",
+            "social-medias": {
+                "github": "https://github.com/rexisn",
+                "linkedin": "https://linkedin.com",
+                "stackoverflow": "https://stackoverflow.com",
+                "instagram": "https://instagram.com",
+                "facebook": "https://facebook.com"
+            },
+            "blogs": [
+                "34567889098765432456",
+                "e5r6tyuioi90876tyg",
+                "598iughjkr756e456r576987" ,
+                "76890-0980-987865767yu8790",
+                "567uiouio9898-0io00-098y7567"
+            ],
+            "followers" : [
+                "tyuiopoiuyiuouytyuyiuoi",
+                "7689iouyt789op-098yughi",
+                "657890-=-098970989789898",
+                "67890-987687909-080-09899",
+                "789087867980987809897089"
+            ]
+        }
+    ],
+    "blogs": [
+        {
+            "id" :"89oijhu989fgbkdhfgbjfdhgbfhdgb",
+            "title" : "How to cook tanzanian rice using american sauce pans",
+            "author" : "rebc89hu8897kdfgbkdhfgbjfdhgbfhdgb" ,
+            "description" : "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Doloribus officia fugiat dolorem quibusdam eligendi nemo numquam explicabo soluta iste voluptate dolores porro nisi, enim dolorum deserunt. Asperiores quod voluptatibus blanditii laceat, nemo ex tempora aliquid assumenda ratione autem corporis",
+            "content" : "<h2>Hey there all of you<h2><p>I'm preased to inform you that am starting a new position as a student as a student</p>",
+            "likes" : "7",
+            "comments" : [
+                {
+                    "user" : {
+                        "id" : "89oijhu989fgbkdhfgbjfdhgbfhdgb" ,
+                        "username" : "rexisn" , 
+                        "profile" : "https://media.istockphoto.com/vectors/male-user-icon-vector-id517998264?k=20&m=517998264&s=612x612&w=0&h=pdEwtkJlZsIoYBVeO2Bo4jJN6lxOuifgjaH8uMIaHTU="
+                    },
+                    "comment" : "Hey there am just ordering you to search for another career coz this on of writing blogs is not yourss"
+                }
+            ]
+        }
+    ],
+    "reviews": []
+} 
