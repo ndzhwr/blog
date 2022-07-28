@@ -1,1 +1,1 @@
-<Largeblog publishedAt='2022-06-07' blog_tags={['money' , 'coding']} blog_id='asd45' blog_content={lorem} blog_title="Lorem ipsum dolor sit amet" blog_image={DefaultImage} blog_owner_image={DefaultImage} blog_owner_name="Dolor sit" />
+ <Largeblog publishedAt='2022-06-07' blog_tags={['money' , 'coding']} blog_id='asd45' blog_content={lorem} blog_title="Lorem ipsum dolor sit amet" blog_image={DefaultImage} blog_owner_image={DefaultImage} blog_owner_name="Dolor sit" />
