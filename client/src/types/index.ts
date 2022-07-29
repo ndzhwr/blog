@@ -1,2 +1,2 @@
-export  * from './largeblogprops.type'
-export * from './blogonhomeprops.types'
+export  * from './props/largeblogprops.type'
+export * from './props/blogonhomeprops.types'

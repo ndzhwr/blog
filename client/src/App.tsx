@@ -5,9 +5,14 @@ import Landing from './components/Landing '
 import { BrowserRouter, Routes, Route } from 'react-router-dom'
 import Notfound from './components/Notfound'
 import Blogs from './components/Blogs'
+import {Provider } from 'react-redux'
+
+
 const App: React.FC = () => {
+
   return (
     <BrowserRouter>
+
       <div className="App font-mine">
         <Routes>
           <Route path='/' element={<Landing />} />
@@ -16,6 +21,7 @@ const App: React.FC = () => {
 
         </Routes>
       </div>
+
     </BrowserRouter>
   )
 }
