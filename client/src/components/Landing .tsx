@@ -5,10 +5,23 @@ import { lorem } from '../assets/lorem'
 import Blogonhome from './Blogonhome'
 import Footer from './Footer'
 import SmallBlog from './SmallBlog'
-import Sidenavbar from './Sidenavbar'
+import store from '../store'
 
 
 const Landing: React.FC = () => {
+    console.log(store.getState())
+    const changeName = () => {
+        return {
+            type: 'CHANGE_NAME',
+            payload: {
+                name: 'John Doe'
+            }
+        }
+    }
+
+    const unsubscribe = store.subscribe(() =>
+        console.log('State after dispatch: ', store.getState())
+    )
     return (
         <>
             <Navbar />
@@ -22,7 +35,7 @@ const Landing: React.FC = () => {
                         And become one of them</p>
                     <p className='mt-[2vh] text-center md:text-left'>Blogside&copy; is a wordwide blogs and articles store where you can find some interesting Blogs that sounds beautiful for you </p>
                     <div className='w-full mt-[4vh]'>
-                        <button className='text-white bg-sky-500 rounded-md px-4 py-2 md:scale-10 msm:scal'>Explore blogs</button> <button className='text-sky-500 border border-sky-500 rounded-md px-4 py-2'>Start writing aricles</button>
+                        <button onClick={()=> store.dispatch(changeName())} className='text-white bg-sky-500 rounded-md px-4 py-2 md:scale-10 msm:scal'>Explore blogs</button> <button className='text-sky-500 border border-sky-500 rounded-md px-4 py-2'>Start writing aricles</button>
                     </div>
 
                 </div>

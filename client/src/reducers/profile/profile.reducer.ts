@@ -1,16 +1,16 @@
 import { Action, user } from "./types"
 const initialUserState: user = {
 
-    username: "string",
-    profile: "string",
+    username: "",
+    profile: "",
     followers: 4,
-    bio: "string",
+    bio: "",
     social_medias: {
-        github: "string",
-        linkedin: "string",
-        stackoverflow: "string",
-        instagram: "string",
-        facebook: "string"
+        github: "",
+        linkedin: "",
+        stackoverflow: "",
+        instagram: "",
+        facebook: ""
     }
 }
 

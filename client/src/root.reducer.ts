@@ -1,10 +1,12 @@
-import { blogsReducer , profileReducer } from "./reducers";
+import { blogsReducer, profileReducer } from "./reducers";
 import { RootReducer } from "./types/rootreducer.type";
-let  state : RootReducer
+import { combineReducers } from 'redux'
+import { testingReducer } from "./reducers/testing/testing.reducer";
 
-export const rootReducer = (state : RootReducer ,action : any ) => {
-    return  {
-        blogs : blogsReducer(state.blogs, action) ,
-        profile : profileReducer(state.profile, action)
-    }
-}  
+
+
+export const  rootReducer = combineReducers({
+    blogs : blogsReducer ,
+    profile : profileReducer ,
+    regis : testingReducer
+})
