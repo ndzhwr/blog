@@ -8,7 +8,7 @@ const BlogHightLight: FC<BlogHightlightProps> = (data: BlogHightlightProps) => {
                 <Link to={`/blogs/${data.id}`}  className="w-fit">
                 <div className='relative'>
                     <img src={data.image} alt="" className='w-full h-40 object-cover  rounded-md ' />
-                    <Link to={`/blogs/${data.category}`} className="absolute bg-white bg-opacity-30 text-white px-4 py-2 rounded-full backdrop-blur-md text-[14px]  bottom-1 right-1 ">#{data.category}</Link>
+                    <span className="absolute bg-white bg-opacity-30 text-white px-4 py-2 rounded-full backdrop-blur-md text-[14px]  bottom-1 right-1 ">#{data.category}</span>
                 </div>
                 <h1 className='text-sm  font-semibold text-gray-600 mb-2'>{data.title}</h1>
                 <span className='text-sm text-gray-200 '>{data.author}</span><span className='text-sm text-gray-200 float-right'>{data.publishedAt}</span>

@@ -1,9 +1,10 @@
-type Blog = {
+export type Blog = {
     title: string ,
     author : String ,
     description : String ,
     content : string ,
     likes : number ,
+    category : string ,
     comments : [
         user : {
             username : string ,
@@ -19,6 +20,7 @@ export type action = {
 }
 
 export type blogs = {
+    currentCategory : string
     numberOfBlogs : number ,
     blogs : Blog[]
 }

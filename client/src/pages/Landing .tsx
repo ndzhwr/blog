@@ -9,7 +9,6 @@ import store from '../store'
 
 
 const Landing: React.FC = () => {
-    console.log(store.getState())
     const changeName = () => {
         return {
             type: 'CHANGE_NAME',
@@ -18,14 +17,14 @@ const Landing: React.FC = () => {
             }
         }
     }
-    const [title, setTitle] = React.useState('Welcome to my blog')
+    // const [title, setTitle] = React.useState('Welcome to my blog')
 
-    const unsubscribe = store.subscribe(() => {
-        const title = store.getState().regis.name
-        setTitle(title)
-        console.log('State after dispatch: ', store.getState())
-    }
-    )
+    // const unsubscribe = store.subscribe(() => {
+    //     const title = store.getState().regis.name
+    //     setTitle(title)
+    //     console.log('State after dispatch: ', store.getState())
+    // }
+    // )
     return (
         <>
             <Navbar />

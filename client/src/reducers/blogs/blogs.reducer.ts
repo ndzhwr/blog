@@ -1,6 +1,7 @@
-import { blogs, action } from "./types";
+import { blogs, action } from "../../types/blog.type";
 const initialBlogsState: blogs = {
-    numberOfBlogs: 0,
+    currentCategory : 'All' ,
+    numberOfBlogs:0,
     blogs: []
 }
 
@@ -14,6 +15,11 @@ export const blogsReducer = (state: blogs = initialBlogsState, action: action): 
                 numberOfBlogs: ++state.numberOfBlogs
             }
             break;
+        case 'CHANGE_CURRENT_CATEGORY' : 
+            return {
+                ...state ,
+                currentCategory : action.payload.name
+            }
         default:
             return state
     }
