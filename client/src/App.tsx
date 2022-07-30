@@ -1,10 +1,9 @@
 import './App.css'
-import Button from '@mui/material/Button'
-import Navbar from './components/Navbar'
-import Landing from './components/Landing '
+import './Scrolls.css'
+import Landing from './pages/Landing '
 import { BrowserRouter, Routes, Route } from 'react-router-dom'
 import Notfound from './components/Notfound'
-import Blogs from './components/Blogs'
+import Blogs from './pages/Blogs'
 import { Provider } from 'react-redux'
 import store from './store'
 
@@ -17,8 +16,9 @@ const App: React.FC = () => {
         <div className="App font-mine">
           <Routes>
             <Route path='/' element={<Landing />} />
-            <Route path='*' element={<Notfound />} />
             <Route path='/blogs' element={<Blogs />} />
+            {/* <Route path='/blogs/:id' element={<SingleBlog />} /> */}
+            <Route path='*' element={<Notfound />} />
 
           </Routes>
         </div>

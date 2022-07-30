@@ -1,10 +1,10 @@
 import React from 'react'
 import DefaultImage from '../assets/default.png'
-import Navbar from './Navbar'
+import Navbar from '../components/Navbar'
 import { lorem } from '../assets/lorem'
-import Blogonhome from './Blogonhome'
-import Footer from './Footer'
-import SmallBlog from './SmallBlog'
+import Blogonhome from '../components/Blogonhome'
+import Footer from '../components/Footer'
+import SmallBlog from '../components/SmallBlog'
 import store from '../store'
 
 
@@ -18,9 +18,13 @@ const Landing: React.FC = () => {
             }
         }
     }
+    const [title, setTitle] = React.useState('Welcome to my blog')
 
-    const unsubscribe = store.subscribe(() =>
+    const unsubscribe = store.subscribe(() => {
+        const title = store.getState().regis.name
+        setTitle(title)
         console.log('State after dispatch: ', store.getState())
+    }
     )
     return (
         <>
@@ -30,12 +34,13 @@ const Landing: React.FC = () => {
                 <div className='py-20 lg:py-40  text-gray-500 msm:w-full'>
                     <div className='w-40 h-60  absolute bg-orange-100 backdrop-blur opacity-30  -z-10 blur-lg'></div>
                     <code className='text-sky-500 indent-4'>./blogside ;</code>
-                    <h1 className="font-extrabold text-4xl text-black my-[2wh] text-center lg:text-left">Where cool blogs find you</h1>
+                    {/* <h1 className="font-extrabold text-4xl text-black my-[2wh] text-center lg:text-left">Where cool blogs find you</h1> */}
+                    <h1 className="font-extrabold text-4xl text-black my-[2wh] text-center lg:text-left">{ store.getState().regis.name}</h1>
                     <p className='text-center md:text-left ' >Come on find the best wordwide blogger <br />
                         And become one of them</p>
                     <p className='mt-[2vh] text-center md:text-left'>Blogside&copy; is a wordwide blogs and articles store where you can find some interesting Blogs that sounds beautiful for you </p>
                     <div className='w-full mt-[4vh]'>
-                        <button onClick={()=> store.dispatch(changeName())} className='text-white bg-sky-500 rounded-md px-4 py-2 md:scale-10 msm:scal'>Explore blogs</button> <button className='text-sky-500 border border-sky-500 rounded-md px-4 py-2'>Start writing aricles</button>
+                        <button onClick={() => store.dispatch(changeName())} className='text-white bg-sky-500 rounded-md px-4 py-2 md:scale-10 msm:scal'>Explore blogs</button> <button className='text-sky-500 border border-sky-500 rounded-md px-4 py-2'>Start writing aricles</button>
                     </div>
 
                 </div>
