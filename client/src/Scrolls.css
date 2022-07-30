@@ -1,6 +1,6 @@
 /* width */
 .scrollDiv::-webkit-scrollbar {
-    width: 10px;
+    width: 8px;
     height: 10px;
   }
   
@@ -12,8 +12,8 @@
   
   /* Handle */
   .scrollDiv::-webkit-scrollbar-thumb {
-    background: gainsboro;
-    border-radius: 100vh;
+    background: rgb(242, 242, 242);
+    border-radius: 100px;
     border: 3px solid #fff;
   }
   

@@ -8,13 +8,15 @@ import axios from 'axios'
 import store from '../store'
 
 const Blogs: FC = () => {
+
     const [blogs, setBlogs] = useState<any[]>([])
-    const [currentCategory, setCurrentCategory] = useState("all")
     const [categories, setCategories] = useState<any[]>([])
+    const [filteredBlogs, setFilteredBlogs] = useState<any[]>([])
     useEffect(() => {
         const fetcher = async () => {
             const blogs = await axios.get('http://localhost:7777/blogs')
             setBlogs(blogs.data)
+            setFilteredBlogs(blogs.data)
             const categories = await axios.get('http://localhost:7777/categories')
             setCategories(categories.data)
         }
@@ -49,7 +51,7 @@ const Blogs: FC = () => {
                             {categories && categories.map(category =>
                             (
 
-                                <CategoryButton name={category.name} />
+                                <CategoryButton currentState={blogs}  name={category.name} setFilteredBlogs={setFilteredBlogs}/>
 
                             ))
 
@@ -58,7 +60,7 @@ const Blogs: FC = () => {
                         </div>
 
                         <div className="blogs flex justify-between  flex-wrap ">
-                            {blogs && blogs.map(blog => (
+                            {filteredBlogs && filteredBlogs.map(blog => (
                                 <div className="blogs flex justify-between  flex-wrap " key={blog.id}>
                                     <BlogHightLight id={blog.id} category={blog.category} image={DefaultImage} title={blog.title} publishedAt={blog.publishedAt} author={blog.author} />
                                 </div>
