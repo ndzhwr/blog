@@ -10,12 +10,12 @@ type currentpageprops = {
 const Sidenavbar: React.FC<currentpageprops> = (data: currentpageprops) => {
 
     return (
-        <div className="currentPage h-screen  border  px-4 flex justify-between items-center bg-white">
+        <div className="currentPage h-screen sticky  top-0 border  px-4 flex justify-between items-center bg-white">
             <div className="links flex flex-col gap-4 ">
-                  <Link to="/" className='opacity-25 scale-125' title='Home' ><FontAwesomeIcon icon={faHouse}  color="gray" className=''  /></Link >
-                  <Link to='/blogs' className='opacity-100 scale-125' title='Blogs' > <FontAwesomeIcon icon={faNewspaper } color="dodgerblue" /> </Link>
-                  <Link to=""  className='opacity-25 scale-125'  title='New Blog'><FontAwesomeIcon icon={faPenSquare} color="gray" /> </Link>
-                  <Link to=""  className='opacity-25 scale-125' title='Profile'><FontAwesomeIcon icon={faUser} color="gray" /> </Link>
+                  <Link to="/" className='scale-125' title='Home' ><FontAwesomeIcon icon={faHouse}   color={data.current == "home" ? "dodgerblue" : "#c4c4c4"} className=''  /></Link >
+                  <Link to='/blogs' className=' scale-125' title='Blogs' > <FontAwesomeIcon icon={faNewspaper } color={data.current == "blogs" ? "dodgerblue" : "#c4c4c4"} /> </Link>
+                  <Link to="/new"  className=' scale-125'  title='New Blog'><FontAwesomeIcon icon={faPenSquare} color={data.current == "new" ? "dodgerblue" : "#c4c4c4"} /> </Link>
+                  <Link to=""  className=' scale-125' title='Profile'><FontAwesomeIcon icon={faUser}  color={data.current == "profile" ? "dodgerblue" : "#c4c4c4"} /> </Link>
             </div > 
         </div >
 

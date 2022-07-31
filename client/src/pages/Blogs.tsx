@@ -63,7 +63,7 @@ const Blogs: FC = () => {
                         <div className="blogs flex justify-between  flex-wrap ">
                             {filteredBlogs.length != 0 && filteredBlogs.map(blog => (
                                 <div key={blog.id}>
-                                    <BlogHightLight id={blog.id} category={blog.category} image={DefaultImage} title={blog.title} publishedAt={blog.publishedAt} author={blog.author}  new={blog.new}/>
+                                    <BlogHightLight id={blog.id} category={blog.category} image={DefaultImage} title={blog.title} publishedAt={blog.publishedAt} author={blog.author} new={blog.new} />
                                 </div>
                             ))
                             }
