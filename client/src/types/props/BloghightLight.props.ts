@@ -5,5 +5,6 @@ export type BlogHightlightProps = {
     title : string ,
     publishedAt : string
     author : string
+    new : boolean
 
 }

@@ -10,7 +10,7 @@ type currentpageprops = {
 const Sidenavbar: React.FC<currentpageprops> = (data: currentpageprops) => {
 
     return (
-        <div className="currentPage h-screen w-[60px] border  px-2 flex justify-between items-center bg-white">
+        <div className="currentPage h-screen  border  px-4 flex justify-between items-center bg-white">
             <div className="links flex flex-col gap-4 ">
                   <Link to="/" className='opacity-25 scale-125' title='Home' ><FontAwesomeIcon icon={faHouse}  color="gray" className=''  /></Link >
                   <Link to='/blogs' className='opacity-100 scale-125' title='Blogs' > <FontAwesomeIcon icon={faNewspaper } color="dodgerblue" /> </Link>

@@ -6,6 +6,7 @@ import DefaultImage from '../assets/default.png'
 import CategoryButton from '../components/CategoryButton'
 import axios from 'axios'
 import store from '../store'
+import EmptyPlace from '../components/EmptyPlace'
 
 const Blogs: FC = () => {
 
@@ -29,7 +30,7 @@ const Blogs: FC = () => {
     /**
      * Action for changing the current state
      * @param name  The name of the category to be set as the current category
-     * @result void    
+     * @result void
      */
 
 
@@ -51,7 +52,7 @@ const Blogs: FC = () => {
                             {categories && categories.map(category =>
                             (
 
-                                <CategoryButton currentState={blogs}  name={category.name} setFilteredBlogs={setFilteredBlogs}/>
+                                <CategoryButton currentState={blogs} name={category.name} setFilteredBlogs={setFilteredBlogs} />
 
                             ))
 
@@ -60,11 +61,14 @@ const Blogs: FC = () => {
                         </div>
 
                         <div className="blogs flex justify-between  flex-wrap ">
-                            {filteredBlogs && filteredBlogs.map(blog => (
-                                <div className="blogs flex justify-between  flex-wrap " key={blog.id}>
-                                    <BlogHightLight id={blog.id} category={blog.category} image={DefaultImage} title={blog.title} publishedAt={blog.publishedAt} author={blog.author} />
+                            {filteredBlogs.length != 0 && filteredBlogs.map(blog => (
+                                <div key={blog.id}>
+                                    <BlogHightLight id={blog.id} category={blog.category} image={DefaultImage} title={blog.title} publishedAt={blog.publishedAt} author={blog.author}  new={blog.new}/>
                                 </div>
                             ))
+                            }
+                            {
+                                filteredBlogs.length == 0 && <EmptyPlace />
                             }
                         </div>
                         {
