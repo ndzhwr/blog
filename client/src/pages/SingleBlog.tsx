@@ -16,7 +16,7 @@ type DataToFetch = {
 const SingleBlog: React.FC = () => {
     const navigate = useNavigate()
     const { id } = useParams()
-    const [data, setData] = React.useState<DataToFetch>({})
+    const [data, setData] = React.useState<DataToFetch>({} as DataToFetch)
     React.useEffect(() => {
 
         const fetcher: any = async () => {
@@ -25,7 +25,7 @@ const SingleBlog: React.FC = () => {
                 setData(res.data)
                 console.log(res)
                 res.status == 404 ? navigate('/notfound') : setData({ ...res.data })
-                
+
             } catch (error) {
                 console.log(" Error " + error)
                 navigate("*")
@@ -51,12 +51,10 @@ const SingleBlog: React.FC = () => {
                 <div className="blog-container col-start-1 col-end-4 p-10 border">
                     <img src="" alt="" className='w-full h-60 rounded-md ' />
                     <h1 className='font-bold text-xl mb-2'>{JSON.stringify(data.description)}</h1>
-                    <p className=' text-md text-[#c4c4c4] mb-4'>{data.description}</p>
+                    <p className=' text-sm  text-[#c4c4c4] mb-4'>{data.description}</p>
                     <div className="text-md font-regular" id='contentPlace'>
 
                         <ReactMarkdown>
-
-
                             {data.content}
                         </ReactMarkdown>
                     </div>

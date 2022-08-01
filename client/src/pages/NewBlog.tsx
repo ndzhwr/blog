@@ -59,8 +59,8 @@ const NewBlog: React.FC = () => {
                     )}
                     <div id="previewer">
                         <h1 className='font-bold text-xl mb-2'>{blogTitle}</h1>
-                        <p className=' text-md text-[#c4c4c4] mb-4'>{blogDescription}</p>
                         <p className=' text-right text-[#c4c4c4]'>{blogCategory}</p>
+                        <p className=' text-sm text-[#c4c4c4] mb-4'>{blogDescription}</p>
                         <div className="text-md font-regular">
 
                             <ReactMarkdown>
