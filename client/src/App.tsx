@@ -7,6 +7,8 @@ import Blogs from './pages/Blogs'
 import { Provider } from 'react-redux'
 import store from './store'
 import NewBlog from './pages/NewBlog'
+import UserProfile from './pages/UserProfile'
+import SingleBlog from './pages/SingleBlog'
 
 const App: React.FC = () => {
 
@@ -19,7 +21,8 @@ const App: React.FC = () => {
             <Route path='/' element={<Landing />} />
             <Route path='/blogs' element={<Blogs />} />
             <Route path='/new' element={<NewBlog />} />
-            {/* <Route path='/blogs/:id' element={<SingleBlog />} /> */}
+            <Route path='/profile' element={<UserProfile />} />
+            <Route path='/blogs/:id' element={<SingleBlog />} />
             <Route path='*' element={<Notfound />} />
 
 

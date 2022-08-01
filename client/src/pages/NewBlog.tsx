@@ -1,13 +1,29 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import Sidenavbar from '../components/Sidenavbar'
 import ReactMarkdown from 'react-markdown'
+import axios from 'axios'
 import { NewBlogSubTopicType } from '../types'
 
 const NewBlog: React.FC = () => {
     const [content, setContent] = React.useState('')
     const [blogTitle, setBlogTitle] = React.useState('')
     const [blogDescription, setBlogDescription] = React.useState('')
-    const [subtopics, setSubtopics] = React.useState<NewBlogSubTopicType[]>([])
+    const [blogCategory, setBlogCategory] = React.useState('')
+    const [blogImage, setblogImage] = React.useState<File>()
+    const [categories, setCategories] = React.useState<any[]>([])
+
+    const formData = new FormData()
+    async function fetchCategories() {
+        const res = await axios.get('http://localhost:7777/categories')
+        const CategoriesWithoutAll: any[] = res.data.filter((category: { name: string }) => category.name !== 'All')
+        setCategories(CategoriesWithoutAll)
+    }
+    useEffect(() => {
+        fetchCategories()
+        console.log(blogImage)
+    }, [blogImage])
+
+
 
     return (
         <div className="flex h-screen">
@@ -17,17 +33,19 @@ const NewBlog: React.FC = () => {
             <div className="content  w-full grid grid-cols-4 ">
 
                 <div className="header col-start-1 border col-end-3 py-10  px-10  pb-4 overflow-y-scroll  scrollDiv bg-sky-100">
-                    <input type="file" placeholder='Blog description picture' />
+                    <input type="file" placeholder='Blog description picture' onChange={(e) => e.target.files && e.target.files.length != 0 && setblogImage(e.target.files[0])} />
                     <div className="flex items-center">
 
-                    <input type="text" className=' border-gray-300 border px-4 py-2  w-full mb-2 text-sm rounded-md ' placeholder='Blog title' onChange={(e) => setBlogTitle(e.target.value)} />
-                    <select name="category" className=' px-4    border text-sm  border-gray-400 rounded-md mb-2 py-2' placeholder='Select a category'>
-                        <option value="fullname" className='px-4 py-2 border '>Blog Category</option>
-                    </select>
+                        <input type="text" className=' border-gray-300 border px-4 py-2  w-full mb-2 text-sm rounded-md ' placeholder='Blog title' onChange={(e) => setBlogTitle(e.target.value)} />
+                        <select name="category" className=' px-4    border text-sm  border-gray-300 rounded-md mb-2 py-2' placeholder='Select a category' onChange={(e) => setBlogCategory(e.target.value)}>
+                            {categories.map(category => (
+                                <option value={category.name} className='px-4 py-2 border '>{category.name}</option>
+                            ))}
+                        </select>
                     </div>
                     <textarea className='w-full no-resize border border-gray-300 h-[100px] px-4 py-2 text-sm rounded-md ' placeholder='Blog description' onChange={(e) => setBlogDescription(e.target.value)} />
                     <textarea className='w-full no-resize border border-gray-300 h-[500px] px-4 py-2 text-sm rounded-md ' placeholder='Blog content / markdown only' onChange={(e) => setContent(e.target.value)} />
-<button className='text-sm w-full bg-sky-500 py-2 text-white rounded-md'>Create blog</button>
+                    <button className='text-sm w-full bg-sky-500 py-2 text-white rounded-md'>Create blog</button>
 
                 </div>
                 <div className="col-start-3 border col-end-5  py-10 px-4 overflow-y-scroll scrollDiv hidden md:block" >
@@ -42,6 +60,7 @@ const NewBlog: React.FC = () => {
                     <div id="previewer">
                         <h1 className='font-bold text-xl mb-2'>{blogTitle}</h1>
                         <p className=' text-md text-[#c4c4c4] mb-4'>{blogDescription}</p>
+                        <p className=' text-right text-[#c4c4c4]'>{blogCategory}</p>
                         <div className="text-md font-regular">
 
                             <ReactMarkdown>
