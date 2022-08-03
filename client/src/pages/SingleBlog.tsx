@@ -49,7 +49,7 @@ const SingleBlog: React.FC = () => {
             <div className="content grid grid-cols-4 w-full">
 
                 <div className="blog-container col-start-1 col-end-4 p-10 border">
-                    <img src="" alt="" className='w-full h-60 rounded-md ' />
+                    <img src={data.image} alt="" className='w-full h-60 rounded-md my-2 border-gray-400 ' />
                     <h1 className='font-bold text-xl mb-2'>{JSON.stringify(data.description)}</h1>
                     <p className=' text-sm  text-[#c4c4c4] mb-4'>{data.description}</p>
                     <div className="text-md font-regular" id='contentPlace'>

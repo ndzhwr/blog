@@ -11,13 +11,11 @@ const NewBlog: React.FC = () => {
     const [blogCategory, setBlogCategory] = React.useState('')
     const [blogImage, setblogImage] = React.useState<File>()
     const [categories, setCategories] = React.useState<any[]>([])
-    const createBlogForm  = document.querySelector('form')
-    const formData : FormData = new FormData(createBlogForm as HTMLFormElement)
-    console.log(formData)
+    
     async function fetchCategories() {
         const res = await axios.get('http://localhost:7777/categories')
         const CategoriesWithoutAll: any[] = res.data.filter((category: { name: string }) => category.name !== 'All')
-        setCategories(CategoriesWithoutAll)
+        setCategories([CategoriesWithoutAll, ...CategoriesWithoutAll])
     }
     useEffect(() => {
         fetchCategories()
@@ -41,7 +39,7 @@ const NewBlog: React.FC = () => {
                             <input type="text" className=' border-gray-300 border px-4 py-2  w-full mb-2 text-sm rounded-md ' placeholder='Blog title' name='blog_title' onChange={(e) => setBlogTitle(e.target.value)} />
                             <select className=' px-4    border text-sm  border-gray-300 rounded-md mb-2 py-2' placeholder='Select a category' name='blog_category' onChange={(e) => setBlogCategory(e.target.value)}>
                                 {categories.map(category => (
-                                    <option value={category.name} className='px-4 py-2 border '>{category.name}</option>
+                                    <option key={category.name} value={category.name} className='px-4 py-2 border '>{category.name}</option>
                                 ))}
                             </select>
                         </div>

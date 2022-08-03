@@ -6,7 +6,7 @@ import Notfound from './components/Notfound'
 import Blogs from './pages/Blogs'
 import { Provider } from 'react-redux'
 import store from './store'
-import NewBlog from './pages/NewBlog'
+import NewBlog from './pages/NewStory'
 import UserProfile from './pages/UserProfile'
 import SingleBlog from './pages/SingleBlog'
 

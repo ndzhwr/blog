@@ -55,8 +55,8 @@ const CategoryButton: React.FC<CategoryButtonProps> = (data: CategoryButtonProps
     return (
 
         <>
-            {amCurrent && <button className='bg-blue-100 py-2 px-4   rounded-full  text-blue-500' onClick={handleClick}>{data.name}</button>}
-            {!amCurrent && <button className='bg-gray-100 py-2 px-4   rounded-full  text-gray-500' onClick={handleClick}>{data.name}</button>}
+            {amCurrent && <button className='bg-blue-100 py-2 px-4  text-sm  rounded-full  font-bold text-blue-500' onClick={handleClick}>{data.name}</button>}
+            {!amCurrent && <button className='bg-gray-100 py-2 px-4  text-sm  rounded-full  text-gray-500' onClick={handleClick}>{data.name}</button>}
         </>
     )
 }

@@ -1,39 +1,51 @@
-import React from 'react'
+import React, { useState, useEffect } from 'react'
 import Sidenavbar from '../components/Sidenavbar'
+import BlogHightLight from '../components/Bloghighlight'
+import EmptyPlace from '../components/EmptyPlace'
+import axios from 'axios'
+import DefaultImage from '../assets/default.png'
 
 const UserProfile: React.FC = () => {
-    const [content, setContent] = React.useState('')
-    const [blogTitle, setBlogTitle] = React.useState('')
-    const [blogDescription, setBlogDescription] = React.useState('')
+
+    const [blogs, setBlogs] = useState<any[]>([])
+    const [categories, setCategories] = useState<any[]>([])
+    const [filteredBlogs, setFilteredBlogs] = useState<any[]>([])
+    useEffect(() => {
+        const fetcher = async () => {
+            const blogs = await axios.get('http://localhost:7777/blogs')
+            setBlogs(blogs.data)
+            setFilteredBlogs(blogs.data)
+            const categories = await axios.get('http://localhost:7777/categories')
+            setCategories(categories.data)
+        }
+        fetcher()
+    }, [])
+
 
     return (
-        <div className="flex h-screen">
+        <div className="flex h-screen w-screen">
 
             <Sidenavbar current='profile' />
 
-            <div className="content  w-full grid grid-cols-4 ">
-
-                <div className="header col-start-1 border col-end-3 py-10  px-10  pb-4 overflow-y-scroll  scrollDiv bg-sky-100">
-
-                </div>
-                <div className="col-start-3 border col-end-5  py-10 px-4 overflow-y-scroll scrollDiv hidden md:block" >
-                    {/* <h1 className='font-bold text-center'>Live preview</h1> */}
-                    {blogTitle.trim().length == 0 && blogDescription.trim().length == 0 && content.trim().length == 0 && (
-                        <div className='mt-60 opacity-70'>
-                            <div className="w-8 h-8 bg-gray-700 mx-auto rounded-tr-xl   rounded-tl-xl rounded-br-xl "></div>
-                            <h1 className='font-bold text-center   text-gray-700'>Live preview</h1>
-                            <p className=" text-center text-sm text-[#c4c4c4]">Preview how your blog will be looking</p>
+            <div className="content  w-full px-[22kk,vw]  ">
+                    <div className='mx-auto  h-20 w-20 mt-4  rounded-full  bg-gray-100' />
+                    <h1 className='font-bold text-center '  >Username </h1>
+                    <p className='text-center text-sm text-[#c4c4c4]'>Self motivated software developer</p>
+                    <hr className='mt-4' />
+                    <div className="blogs">
+                        <div className="blogs flex justify-between  flex-wrap pt-4 ">
+                            {filteredBlogs.length != 0 && filteredBlogs.map(blog => (
+                                <div key={blog.id}>
+                                    <BlogHightLight id={blog.id} category={blog.category} image={DefaultImage} title={blog.title} publishedAt={blog.publishedAt} author={blog.author} new={blog.new} />
+                                </div>
+                            ))
+                            }
+                            {
+                                filteredBlogs.length == 0 && <EmptyPlace />
+                            }
                         </div>
-                    )}
-                    <div id="previewer">
-                        <h1 className='font-bold text-xl mb-2'>{blogTitle}</h1>
-                        <p className=' text-md text-[#c4c4c4] mb-4'>{blogDescription}</p>
-                        <div className="text-md font-regular">
-                        </div>
+
                     </div>
-
-                </div>
-
             </div>
         </div>
     )
